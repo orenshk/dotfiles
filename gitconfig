@@ -1,0 +1,15 @@
+[user]
+	name = orenshk
+	email = orenshk@gmail.com
+[credential]
+	helper = osxkeychain
+[core]
+	editor = vim
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+    cmd = default-difftool.sh $LOCAL $REMOTE
+[difftool]
+	prompt = false
+[alias]
+	d = difftool
