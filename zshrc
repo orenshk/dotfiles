@@ -71,7 +71,7 @@ MYPATH=/usr/local/opt/ruby/bin:$MYPATH
 
 export PATH=$MYPATH
 
-cdpath=($HOME/c166)
+cdpath=($HOME/c166 $HOME/Dropbox/SFU/Teaching)
 
 # load vmail in a macvim instance
 #export VMAIL_VIM=mvim
@@ -99,3 +99,6 @@ fi
 function chpwd() {
   print -l $PWD ${(u)dirstack} >$DIRSTACKFILE
 }
+
+# when not last this gets overwritten? should find out why.
+alias ll='ls -lah'
