@@ -6,3 +6,5 @@ Various dot files
 * tmux.conf
 
 * gitconfig
+
+* slate
