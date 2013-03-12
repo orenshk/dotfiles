@@ -1,0 +1,96 @@
+# Shows app icons and background apps, spreads icons in the same place.
+config windowHintsShowIcons                 true
+config windowHintsIgnoreHiddenWindows       false
+config windowHintsSpread                    true
+
+# windowHint configuration
+config windowHintsFontColor "0;0;255;1.0"
+
+# window position aliases
+#
+# halves and quarters
+alias     full              move                 screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias     leftHalf          move                 screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias     rightHalf         move                 screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias     topHalf           move                 screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias     bottomHalf        move                 screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias     topLeft           corner top-left      resize:screenSizeX/2;screenSizeY/2
+alias     topRight          corner top-right     resize:screenSizeX/2;screenSizeY/2
+alias     bottomLeft        corner bottom-left   resize:screenSizeX/2;screenSizeY/2
+alias     bottomRight       corner bottom-right  resize:screenSizeX/2;screenSizeY/2
+
+# thirds
+alias     thirdRight        corner top-right     resize:screenSizeX/3;screenSizeY
+alias     thirdCentre       move                 screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias     thirdLeft         corner top-left      resize:screenSizeX/3;screenSizeY
+
+# two thirds
+alias     twoThirdsRight    corner top-right     resize:2*screenSizeX/3;screenSizeY
+alias     twoThirdsLeft     corner top-left      resize:2*screenSizeX/3;screenSizeY
+
+# sixths
+alias     topLeftSixth      corner  top-left     resize:screenSizeX/3;screenSizeY/2
+alias     topCentreSixth    move                 screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2
+alias     topRightSixth     corner  top-right    resize:screenSizeX/3;screenSizeY/2
+alias     bottomLeftSixth   corner  bottom-left  resize:screenSizeX/3;screenSizeY/2
+alias     bottomCentreSixth move                 screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
+alias     bottomRightSixth  corner  bottom-right resize:screenSizeX/3;screenSizeY/2
+
+# monitors
+alias mon-laptop    1
+alias mon-ext       0
+
+# The hyper key
+alias hyper ctrl;shift;alt;cmd
+
+# the modifier key.
+alias mod ctrl;shift
+
+#2 monitor aliases and layout. I'll define these as needed.
+alias     mon-laptop-full    move                 screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
+
+alias     mon-ext-leftHalf   move                 screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
+alias     mon-ext-rightHalf  move                 screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
+alias     mon-ext-trSixth    corner top-right     resize:screenSizeX/3;screenSizeY/2 ${mon-ext}
+
+layout    twoMonitors                              'Calendar':MAIN_FIRST ${mon-laptop-full}
+layout    twoMonitors                              'Google Chrome':REPEAT ${mon-ext-leftHalf}
+layout    twoMonitors                              'Notes':REPEAT ${mon-ext-trSixth}
+layout    twoMonitors                              'MacVim':MAIN_FIRST ${mon-ext-rightHalf}
+default   twoMonitors                              resolutions:${mon-ext};${mon-laptop}
+
+bind l:/;cmd;alt layout twoMonitors
+
+# bindings
+# keys for hints and grid.
+bind      tab:${hyper}                           hint ASDFGHJKLQWERTYUIOPCVBN
+bind      g:cmd grid                             padding:5 0:3,2 1:2,2
+
+# binds for halves and quarters
+bind     f:${mod}         ${full}
+bind     h:${mod}         ${leftHalf}
+bind     l:${mod}         ${rightHalf}
+bind     k:${mod}         ${topHalf}
+bind     j:${mod}         ${bottomHalf}
+bind     y:${mod}         ${topLeft}
+bind     p:${mod}         ${topRight}
+bind     b:${mod}         ${bottomLeft}
+bind     .:${mod}         ${bottomRight}
+
+# binds for thirds
+bind     9:${mod}         ${thirdRight}
+bind     8:${mod}         ${thirdCentre}
+bind     7:${mod}         ${thirdLeft}
+
+# binds for two thirds
+bind     o:${mod}         ${twoThirdsRight}
+bind     u:${mod}         ${twoThirdsLeft}
+
+# binds for sixths
+bind     1:${mod}         ${topLeftSixth}
+bind     2:${mod}         ${topCentreSixth}
+bind     3:${mod}         ${topRightSixth}
+bind     q:${mod}         ${bottomLeftSixth}
+bind     w:${mod}         ${bottomCentreSixth}
+bind     e:${mod}         ${bottomRightSixth}
+
