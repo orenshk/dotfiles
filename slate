@@ -65,7 +65,7 @@ bind l:/;cmd;alt layout twoMonitors
 
 # bindings
 # keys for hints and grid.
-bind      tab:${hyper}                           hint ASDFGHJKLQWERTYUIOPCVBN
+bind      `:${hyper}                           hint ASDFGHJKLQWERTYUIOPCVBN
 bind      g:cmd grid                             padding:5 0:3,2 1:2,2
 
 # binds for halves and quarters
