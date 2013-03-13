@@ -2,9 +2,11 @@
 config windowHintsShowIcons                 true
 config windowHintsIgnoreHiddenWindows       false
 config windowHintsSpread                    true
+config windowHintsDuration                   5
+config windowHintsFontSize                   60
 
 # windowHint configuration
-config windowHintsFontColor "0;0;255;1.0"
+config windowHintsFontColor "0;255;0;1.0"
 
 # window position aliases
 #
@@ -93,4 +95,3 @@ bind     3:${mod}         ${topRightSixth}
 bind     q:${mod}         ${bottomLeftSixth}
 bind     w:${mod}         ${bottomCentreSixth}
 bind     e:${mod}         ${bottomRightSixth}
-
