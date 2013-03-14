@@ -764,9 +764,9 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>338 407 214 309 0 0 1920 1058 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>122 410 924 485 0 0 1920 1058 </string>
+	<string>836 376 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1920 238 655 519 1920 0 1366 768 </string>
+	<string>1920 0 1366 768 1920 0 1366 768 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>275 186 655 621 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3714,7 +3714,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-03-11T19:59:02Z</date>
+	<date>2013-03-14T10:35:50Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
