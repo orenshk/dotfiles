@@ -1,4 +1,4 @@
-# Shows app icons and background apps, spreads icons in the same place.
+# shows app icons and background apps, spreads icons in the same place.
 config windowHintsShowIcons                 true
 config windowHintsIgnoreHiddenWindows       false
 config windowHintsSpread                    true
@@ -39,8 +39,10 @@ alias     bottomCentreSixth move                 screenOriginX+screenSizeX/3;scr
 alias     bottomRightSixth  corner  bottom-right resize:screenSizeX/3;screenSizeY/2
 
 # monitors
-alias mon-laptop    1
-alias mon-ext       0
+alias mon-ext           0
+alias mon-ext-res       1920x1080
+alias mon-laptop-res    1366x768
+alias mon-laptop        1
 
 # The hyper key
 alias hyper ctrl;shift;alt;cmd
@@ -49,23 +51,30 @@ alias hyper ctrl;shift;alt;cmd
 alias mod ctrl;shift
 
 #2 monitor aliases and layout. I'll define these as needed.
-alias     mon-laptop-full    move                 screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
+alias     mon-laptop-full    move                screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
 
-alias     mon-ext-leftHalf   move                 screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
-alias     mon-ext-rightHalf  move                 screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
-alias     mon-ext-trSixth    corner top-right     resize:screenSizeX/3;screenSizeY/2 ${mon-ext}
+alias     mon-ext-leftHalf   move                screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
+alias     mon-ext-rightHalf  move                screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${mon-ext}
+alias     mon-ext-trSixth    corner top-right    resize:screenSizeX/3;screenSizeY/2 ${mon-ext}
+alias     mon-ext-rightThird corner top-right    resize:screenSizeX/3;screenSizeY ${mon-ext}
 
-layout    twoMonitors                              'Calendar':MAIN_FIRST ${mon-laptop-full}
-layout    twoMonitors                              'Google Chrome':REPEAT ${mon-ext-leftHalf}
-layout    twoMonitors                              'Notes':REPEAT ${mon-ext-trSixth}
-layout    twoMonitors                              'MacVim':MAIN_FIRST ${mon-ext-rightHalf}
-default   twoMonitors                              resolutions:${mon-ext};${mon-laptop}
+layout    twoMonitors                            'Calendar':MAIN_FIRST ${mon-laptop-full}
+layout    twoMonitors                            'Google Chrome':REPEAT ${mon-ext-leftHalf}
+layout    twoMonitors                            'Notes':REPEAT ${mon-ext-trSixth}
+layout    twoMonitors                            'MacVim':MAIN_FIRST,REPEAT ${mon-ext-rightThird}
+default   twoMonitors                            resolutions:${mon-ext-res};${mon-laptop-res}
 
-bind l:/;cmd;alt layout twoMonitors
+bind e:/;cmd;alt layout twoMonitors
+
+# 1 monitor layout
+layout    onlyLaptopMonitor                      'MacVim':MAIN_FIRST,REPEAT ${topRight} | ${bottomRight}
+default   onlyLaptopMonitor                      resolutions:${mon-laptop-res}
+
+bind l:/;cmd;alt layout onlyLaptopMonitor
 
 # bindings
 # keys for hints and grid.
-bind      `:${hyper}                           hint ASDFGHJKLQWERTYUIOPCVBN
+bind      `:ctrl                                 hint ASDFGHJKLQWERTYUIOPCVBN
 bind      g:cmd grid                             padding:5 0:3,2 1:2,2
 
 # binds for halves and quarters
