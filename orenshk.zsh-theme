@@ -3,7 +3,7 @@
 # Colours chosen with solarized dark in mind
 # Yoinked cool git symbols from gozilla
 # Yoinked prompt ideas from Fino.
-
+# Return code from afowler, but slightly modified.
 
 ZSH_THEME_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%})[%{$fg[yellow]%}⊗%{$reset_color%}"
@@ -16,20 +16,25 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✱"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}]%{$reset_color%}"
 
+local return_code="%(?..%{$fg[red]%},↵%?%{$reset_color%})"
+hostinfo="%{$fg_bold[cyan]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m"
 # Notify of change in mode (command vs insert)
-VIMODE="%{$fg[red]%}─○"
+vimode_top="%{$fg[red]%}╭─"
+vimode_bot="%{$fg[red]%}╰─○"
 function zle-line-init zle-keymap-select zle-line-finish {
     case $KEYMAP in
         vicmd)
-            VIMODE="%{$fg[blue]%}─○"
-            VIMODETITLE=" -- command --"
+            vimode_top="%{$fg[blue]%}╭─"
+            vimode_bot="%{$fg[blue]%}╰─○"
+            vimode_title=" -- command --"
             ;;
         *)
-            VIMODE="%{$fg[red]%}─○"
-            VIMODETITLE="       -- insert --"
+            vimode_top="%{$fg[red]%}╭─"
+            vimode_bot="%{$fg[red]%}╰─○"
+            vimode_title="       -- insert --"
             ;;
     esac
-    echo -ne "\e]1;$PWD $VIMODETITLE\a"
+    echo -ne "\e]1;$PWD $vimode_title\a"
     zle reset-prompt
 }
 
@@ -40,9 +45,9 @@ function precmd() {
     BATTERY=`battery_pct_prompt 2>&1`
 }
 
-PROMPT='╭─%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}%~%{$fg_bold[blue]%}) \
-%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%} \
-${BATTERY}%{$reset_color%}
-╰${VIMODE} '
+RPS1='${hostinfo} $(git_prompt_status)${return_code}'
 
-RPS1='$(git_prompt_status)'
+PROMPT='${vimode_top}%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}%~%{$fg_bold[blue]%}) \
+%{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%} \
+${BATTERY} 
+${vimode_bot}%{$reset_color%} '
