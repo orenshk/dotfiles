@@ -30,3 +30,12 @@ function precmd() {
 PROMPT='%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}%c%{$fg_bold[blue]%}) \
 %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%} \
 ${BATTERY} ${VIMODE} %{$reset_color%}'
+
+RPS1='$(git_prompt_status)'
+
+ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[cyan]%} ✈"
+ZSH_THEME_GIT_PROMPT_MODIFIED="%{$fg[yellow]%} ✭"
+ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✗"
+ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ➦"
+ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[grey]%} ✱"
