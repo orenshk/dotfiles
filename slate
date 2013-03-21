@@ -73,9 +73,8 @@ default   onlyLaptopMonitor                      resolutions:${mon-laptop-res}
 bind l:/;cmd;alt layout onlyLaptopMonitor
 
 # bindings
-# keys for hints and grid.
+# keys for hints 
 bind      `:ctrl                                 hint ASDFGHJKLQWERTYUIOPCVBN
-bind      g:cmd grid                             padding:5 0:3,2 1:2,2
 
 # binds for halves and quarters
 bind     f:${mod}         ${full}
