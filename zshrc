@@ -23,11 +23,8 @@ alias chrome='open -a Google\ Chrome'
 alias safari='open -a Safari'
 alias browser=chrome
 
-## Navigation
-alias ..='cd ..'
-alias sfu='cd ~/Dropbox/SFU/'
-alias thesis='cd ~/Dropbox/SFU/Thesis'
-alias vimdir='cd ~/.vim'
+# tmux aliases
+alias th='tmux_home.sh'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -52,7 +49,7 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx battery)
+plugins=(git osx battery zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,7 +68,7 @@ MYPATH=/usr/local/opt/ruby/bin:$MYPATH
 
 export PATH=$MYPATH
 
-cdpath=($HOME/c166 $HOME/Dropbox/SFU/Teaching)
+cdpath=($HOME/c166 $HOME/Dropbox/SFU/Thesis)
 
 # load vmail in a macvim instance
 #export VMAIL_VIM=mvim
