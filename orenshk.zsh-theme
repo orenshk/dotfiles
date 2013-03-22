@@ -46,9 +46,11 @@ function precmd() {
     BATTERY=`battery_pct_prompt 2>&1`
 }
 
+
 RPROMPT='$(git_prompt_status)${return_code} ${BATTERY}'
 
-PROMPT='${vimode_top}%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}%~%{$fg_bold[blue]%}) \
+PROMPT='${vimode_top}%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}\
+%~%{$fg_bold[blue]%}) \
 %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%} \
 (${hostinfo}) 
 ${vimode_bot}%{$reset_color%} '
