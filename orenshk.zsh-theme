@@ -16,7 +16,7 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ✂"
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✱"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}]%{$reset_color%}"
 
-local return_code="%(?..%{$fg[red]%},↵%?%{$reset_color%})"
+local return_code="%(?..%{$fg[red]%}↵%?%{$reset_color%})"
 hostinfo="%{$fg_bold[cyan]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m%{$reset_color%}"
 
 # Notify of change in mode (command vs insert)
