@@ -17,7 +17,8 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[cyan]%} ✱"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[blue]%}]%{$reset_color%}"
 
 local return_code="%(?..%{$fg[red]%},↵%?%{$reset_color%})"
-hostinfo="%{$fg_bold[cyan]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m"
+hostinfo="%{$fg_bold[cyan]%}%n%{$reset_color%}@%{$fg_bold[magenta]%}%m%{$reset_color%}"
+
 # Notify of change in mode (command vs insert)
 vimode_top="%{$fg[red]%}╭─"
 vimode_bot="%{$fg[red]%}╰─○"
@@ -45,9 +46,9 @@ function precmd() {
     BATTERY=`battery_pct_prompt 2>&1`
 }
 
-RPS1='${hostinfo} $(git_prompt_status)${return_code}'
+RPROMPT='$(git_prompt_status)${return_code} ${BATTERY}'
 
 PROMPT='${vimode_top}%{$fg_bold[blue]%}(%{$fg_bold[green]%}%p%{$fg[cyan]%}%~%{$fg_bold[blue]%}) \
 %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}% %{$reset_color%} \
-${BATTERY} 
+(${hostinfo}) 
 ${vimode_bot}%{$reset_color%} '
