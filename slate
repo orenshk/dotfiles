@@ -74,7 +74,7 @@ bind l:/;cmd;alt layout onlyLaptopMonitor
 
 # bindings
 # keys for hints 
-bind      `:ctrl                                 hint ASDFGHJKLQWERTYUIOPCVBN
+bind      a:${hyper}                             hint ASDFGHJKLQWERTYUIOPCVBN
 
 # binds for halves and quarters
 bind     f:${mod}         ${full}
