@@ -99,3 +99,9 @@ function chpwd() {
 
 # when not last this gets overwritten? should find out why.
 alias ll='ls -lah'
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+if [[ -s $HOME/.rvm/scripts/rvm ]]; then
+    source $HOME/.rvm/scripts/rvm;
+fi
