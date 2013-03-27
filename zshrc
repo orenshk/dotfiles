@@ -8,8 +8,9 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="orenshk"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="mvim ~/.zshrc"
+alias ohmyzsh="mvim ~/.oh-my-zsh"
+alias slimv="sbcl --load ~/.vim/bundle/slimv/slime/start-swank.lisp"
 
 # ls aliases
 alias ls=' ls'          # for histignorespace option
