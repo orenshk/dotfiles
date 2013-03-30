@@ -722,7 +722,7 @@
 	<key>NSColorPickerSlidersDefaults</key>
 	<string>1</string>
 	<key>NSFontPanelPreviewHeight</key>
-	<real>51</real>
+	<real>55</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/dotfiles</string>
 	<key>NSNavPanelExpandedStateForSaveMode</key>
@@ -770,7 +770,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>836 376 924 485 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1920 0 1366 768 1920 0 1366 768 </string>
+	<string>0 0 1920 1080 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>275 186 655 621 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -3001,7 +3001,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-03-21T04:18:49Z</date>
+	<date>2013-03-27T15:02:53Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
