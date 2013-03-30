@@ -7,6 +7,11 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="orenshk"
 
+# setup z
+export _Z_CMD=j
+alias cdj='j'
+. `brew --prefix`/Cellar/z/1.5/etc/profile.d/z.sh
+
 # Example aliases
 alias zshconfig="mvim ~/.zshrc"
 alias ohmyzsh="mvim ~/.oh-my-zsh"
