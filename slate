@@ -4,6 +4,7 @@ config windowHintsIgnoreHiddenWindows       false
 config windowHintsSpread                    true
 config windowHintsDuration                   5
 config windowHintsFontSize                   60
+config modalEscapeKey                       esc
 
 # windowHint configuration
 config windowHintsFontColor "0;255;0;1.0"
@@ -50,6 +51,10 @@ alias hyper ctrl;shift;alt;cmd
 # the modifier key.
 alias mod ctrl;shift
 
+#######################################################################
+#                               Layouts                               #
+#######################################################################
+
 #2 monitor aliases and layout. I'll define these as needed.
 alias     mon-laptop-full    move                screenOriginX;screenOriginY screenSizeX;screenSizeY ${mon-laptop}
 
@@ -64,19 +69,62 @@ layout    twoMonitors                            'Notes':REPEAT ${mon-ext-trSixt
 layout    twoMonitors                            'MacVim':MAIN_FIRST,REPEAT ${mon-ext-rightThird}
 default   twoMonitors                            resolutions:${mon-ext-res};${mon-laptop-res}
 
-bind e:/;cmd;alt layout twoMonitors
+bind e:m;${hyper} layout twoMonitors
 
 # 1 monitor layout
 layout    onlyLaptopMonitor                      'MacVim':MAIN_FIRST,REPEAT ${topRight} | ${bottomRight}
 default   onlyLaptopMonitor                      resolutions:${mon-laptop-res}
 
-bind l:/;cmd;alt layout onlyLaptopMonitor
+bind l:m;${hyper} layout onlyLaptopMonitor
+
+# relaunch slate
+bind r:m;${hyper} relaunch
 
 # bindings
-# keys for hints 
+# keys for hints
 bind      esc:cmd                            hint ASDFGHJKLQWERTYUIOPCVBN
 
-# binds for halves and quarters
+#######################################################################
+#                           Moving windows                            #
+#######################################################################
+# 1 pixel
+bind left:alt:m;${hyper}:toggle                 nudge -1 +0
+bind right:alt:m;${hyper}:toggle                nudge +1 +0
+bind up:alt:m;${hyper}:toggle                   nudge +0 -1
+bind down:alt:m;${hyper}:toggle                 nudge +0 +1
+
+# 10 pixels
+bind left:shift:m;${hyper}:toggle               nudge -10 +0
+bind right:shift:m;${hyper}:toggle              nudge +10 +0
+bind up:shift:m;${hyper}:toggle                 nudge +0 -10
+bind down:shift:m;${hyper}:toggle               nudge +0 +10
+
+# 100 pixels
+bind left:m;${hyper}:toggle                     nudge -100 +0
+bind right:m;${hyper}:toggle                    nudge +100 +0
+bind up:m;${hyper}:toggle                       nudge +0 -100
+bind down:m;${hyper}:toggle                     nudge +0 +100
+
+# push to edges
+bind left:cmd:m;${hyper}:toggle                 push left
+bind right:cmd:m;${hyper}:toggle                push right
+bind up:cmd:m;${hyper}:toggle                   push top
+bind down:cmd:m;${hyper}:toggle                 push bottom
+
+#######################################################################
+#                          Resizing windows                           #
+#######################################################################
+
+# 100 pixels top-left
+bind right:${hyper}:m;${hyper}:toggle                resize +100 +0 top-left
+bind down:${hyper}:m;${hyper}:toggle                 resize  +0 +100 top-left
+bind left:${hyper}:m;${hyper}:toggle                 resize -100 +0 top-left
+bind up:${hyper}:m;${hyper}:toggle                   resize  +0 -100 top-left
+
+#######################################################################
+#                    binds for halves, quarters, thirds, etc          #
+#######################################################################
+
 bind     f:${mod}         ${full}
 bind     h:${mod}         ${leftHalf}
 bind     l:${mod}         ${rightHalf}
