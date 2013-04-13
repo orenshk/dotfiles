@@ -32,6 +32,11 @@ alias browser=chrome
 # tmux aliases
 alias th='tmux_home.sh'
 
+# poll tmux buffers.
+if [ `ps | grep -c "poll-tmux-buffers"` -eq 1 ]; then
+    $HOME/Scripts/poll-tmux-buffers.sh&
+fi
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
