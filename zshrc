@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -36,6 +39,10 @@ alias th='tmux_home.sh'
 if [ `ps | grep -c "poll-tmux-buffers"` -eq 1 ]; then
     $HOME/Scripts/poll-tmux-buffers.sh&
 fi
+
+# todo.sh 
+alias t=todo.sh
+alias tf="mvim /usr/local/bin/todo.txt"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
